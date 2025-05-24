@@ -132,7 +132,7 @@ function startCountdown() {
       showFireworks();
       return;
     }
-    countdown.textContent = `Hlasovanie končí za: 0:${time < 60 ? '0' : ''}${time}`;
+    countdown.textContent = `Hlasovanie končí za: 0:${time < 10 ? '0' : ''}${time}`;
     time--;
   }, 1000);
 }
