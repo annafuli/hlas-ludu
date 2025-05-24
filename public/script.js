@@ -265,3 +265,23 @@ async function getComments() {
   }
   return data
 }
+async function refreshComments() {
+  const comments = await getComments()
+  list.innerHTML = ''
+  comments.forEach(c => {
+    const li = document.createElement('li')
+    li.textContent = c.text
+    list.appendChild(li)
+  })
+}
+
+button.addEventListener('click', async () => {
+  const text = input.value.trim()
+  if (text) {
+    await addComment(text)
+    input.value = ''
+    refreshComments()
+  }
+})
+
+refreshComments()
