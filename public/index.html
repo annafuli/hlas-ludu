@@ -56,17 +56,15 @@
   <!-- 💬 KOMENTÁRE -->
 <div class="comment-section" style="text-align: center; margin-top: 30px;">
   <h4>Naťukaj mi bársčo do komentu, dikes ↓↓↓ aby som videla, či to funguje </h4>
-<input type="text" id="nameInput" placeholder="Tvoje meno...">
-<br>
-<input type="text" id="commentInput" placeholder="Tvoj komentár...">
-<button onclick="addComment()">Odoslať komentár</button>
-
-
+<input id="commentInput" type="text" placeholder="Napíš komentár">
+<button id="submitComment">Odoslať</button>
+<ul id="commentList"></ul>
+  
   <h5 style="margin-top: 20px;">Aha už vidííííím:</h5>
   <div id="commentList"></div>
 </div>
 
-<script src="script.js"></script>
+<script type="module" src="script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </body>
 </html>
