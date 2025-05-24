@@ -132,6 +132,8 @@ function startCountdown() {
       showFireworks();
       return;
     }
+     const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
     countdown.textContent = `Hlasovanie končí za: 0:${time < 10 ? '0' : ''}${time}`;
     time--;
   }, 1000);
