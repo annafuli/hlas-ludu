@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Hlasuj za svojho favorita</title>
+
+  <link rel="stylesheet" href="./style.css">  <!-- //ak mam zvlast zložku -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+</head>
+
+<body>
+  <h2><strong>Na koho vystúpenie si kúpime lístok?</strong></h2>
+<div id="countdown" class="countdown">Hlasovanie končí za: 00:10</div>
+
+ <!-- 🧍 KANDIDÁTI V RIADKU -->
+
+ <div class="boys-container">
+  <div class="participant">
+  <img src="./james.jpg" alt="James" onclick="playSound('James')">
+  <div class="name">James</div>
+  <div class="votes">Hlasov: <span id="votesJames">0</span></div>
+  <button onclick="vote('James')">Hlasuj</button>
+</div>
+
+<div class="participant">
+  <img src="./bean.jpg" alt="MrBean" onclick="playSound('MrBean')">
+  <div class="name">Mr. Bean</div>
+  <div class="votes">Hlasov: <span id="votesMrBean">0</span></div>
+  <button onclick="vote('MrBean')">Hlasuj</button>
+</div>
+
+<div class="participant">
+  <img src="./vaso.jpg" alt="Vaso" onclick="playSound('Vaso')">
+  <div class="name">Vašo</div>
+  <div class="votes">Hlasov: <span id="votesVaso">0</span></div>
+  <button onclick="vote('Vaso')">Hlasuj</button>
+</div>
+</div>
+
+<!-- PO hlasovaní: výsledky -->
+ 
+  <div id="winner" class="winner-box">Vedie: </div>  
+
+ <!-- 🕸️ RADAR GRAF -->
+ <canvas id="votesChart" width="300" height="300"></canvas>
+ 
+   <!-- 🏁 VÍŤAZ -->
+
+<div id="finalWinner" class="final-winner" style="display:none;">
+  <h2>🎉 Víťaz je: <span id="finalWinnerName"></span> 🎉</h2>
+  <img id="finalWinnerImage" src="" alt="Víťaz" class="winner-image">
+</div>
+
+  <!-- 💬 KOMENTÁRE -->
+<div class="comment-section" style="text-align: center; margin-top: 30px;">
+  <h4>Naťukaj mi bársčo do komentu, dikes ↓↓↓ aby som videla, či to funguje </h4>
+<input type="text" id="nameInput" placeholder="Tvoje meno...">
+<br>
+<input type="text" id="commentInput" placeholder="Tvoj komentár...">
+<button onclick="addComment()">Odoslať komentár</button>
+
+
+  <h5 style="margin-top: 20px;">Aha už vidííííím:</h5>
+  <div id="commentList"></div>
+</div>
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</body>
+</html>
