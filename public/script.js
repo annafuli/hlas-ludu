@@ -134,7 +134,8 @@ function startCountdown() {
     }
      const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    countdown.textContent = `Hlasovanie končí za: 0:${time < 10 ? '0' : ''}${time}`;
+      countdown.textContent = `Hlasovanie končí za: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
     time--;
   }, 1000);
 }
