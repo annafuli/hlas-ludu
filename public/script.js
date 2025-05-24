@@ -236,3 +236,32 @@ function showFireworks() {
     }));
   }, 250);
 }
+
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+const supabaseUrl = 'https://spegolgmrhgmlqizxkmj.supabase.co'
+const supabaseKey = 'tvoj_anon_key_sem' // nájdeš ho v Supabase > Project Settings > API
+const supabase = createClient(supabaseUrl, supabaseKey)
+
+const input = document.getElementById('commentInput')
+const button = document.getElementById('submitComment')
+const list = document.getElementById('commentList')
+
+async function addComment(text) {
+  const { error } = await supabase
+    .from('comments')
+    .insert([{ text }])
+  if (error) console.error('Chyba pri ukladaní komentára:', error)
+}
+
+async function getComments() {
+  const { data, error } = await supabase
+    .from('comments')
+    .select('*')
+    .order('created_at', { ascending: false })
+  if (error) {
+    console.error('Chyba pri načítaní komentárov:', error)
+    return []
+  }
+  return data
+}
