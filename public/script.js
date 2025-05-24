@@ -124,19 +124,21 @@ function addComment() {
 function startCountdown() {
   let time = 60;
   const countdown = document.getElementById("countdown");
+
   const interval = setInterval(() => {
-    if (time <= 0) {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+
+    countdown.textContent = `Hlasovanie končí za: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+    time--;
+
+    if (time < 0) {
       clearInterval(interval);
       countdown.textContent = "⏰ Hlasovanie ukončené!";
       votingEnabled = false;
       showFireworks();
-      return;
     }
-     const minutes = Math.floor(time / 60);
-    const seconds = time % 60;
-      countdown.textContent = `Hlasovanie končí za: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-
-    time--;
   }, 1000);
 }
 
