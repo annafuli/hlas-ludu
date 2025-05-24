@@ -122,7 +122,7 @@ function addComment() {
 }
 
 function startCountdown() {
-  let time = 10;
+  let time = 60;
   const countdown = document.getElementById("countdown");
   const interval = setInterval(() => {
     if (time <= 0) {
@@ -132,7 +132,7 @@ function startCountdown() {
       showFireworks();
       return;
     }
-    countdown.textContent = `Hlasovanie končí za: 0:${time < 10 ? '0' : ''}${time}`;
+    countdown.textContent = `Hlasovanie končí za: 0:${time < 60 ? '0' : ''}${time}`;
     time--;
   }, 1000);
 }
